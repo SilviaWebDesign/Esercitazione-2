@@ -31,8 +31,8 @@ class Particle {
 //sistemo la velocità che desidero 
 //in base al disegno creato
   seek() {
-    let x = map(this.position.x, 0, width, 0, 1);
-    let y = map(this.position.y, 0, height, 0, 1);
+    let x = map(this.position.x, 0, width, 0, 1) * scl;
+    let y = map(this.position.y, 0, height, 0, 1) * scl;
 // creo una variabile equal to chladni function
 // map tra 0 e 255 e riempio i riquadri in base a val
       //let val = map(chladni(x, y), -2, 1, 0, 255);
@@ -45,8 +45,8 @@ class Particle {
 // in questo modo ad ognii frame le particelle
 // si muoveranno sempre piu vicine alle linee nodali
     if (abs(val) > threshold) {
-      target.x += random(-3, 3);
-      target.y += random(-3, 3);
+      target.x += random(-9, 9);
+      target.y += random(-9, 9);
       
       } 
       
@@ -74,7 +74,7 @@ class Particle {
   
 // disegno la particella
   display() {
-    stroke(255);
+    stroke(255, 0, 255);
     point(this.position.x, this.position.y);
   }
   
